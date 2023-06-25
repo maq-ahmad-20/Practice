@@ -7,10 +7,11 @@ function addItem(e){
     e.preventDefault();
    
      var addedText = document.getElementById('item').value;
+     var addedText1 = document.getElementById('item1').value;
 
      var li = document.createElement('li');
      li.className ='list-group-item';
-     li.appendChild(document.createTextNode(addedText));
+     li.appendChild(document.createTextNode(addedText+" " + addedText1));
 
      var deleteButton = document.createElement('button');
      deleteButton.className = 'btn btn-danger btn-sm float-right delete';
@@ -21,6 +22,8 @@ function addItem(e){
      
      editButton.appendChild(document.createTextNode("Edit"));
      editButton.style.backgroundColor = 'green';
+
+
 
      li.appendChild(editButton);
      li.appendChild(deleteButton);
@@ -44,6 +47,24 @@ function addItem(e){
       }
   });
 
+    var filter = document.getElementById('filter');
+
+     filter.addEventListener('keyup' , (e)=>{
+        var inputText = e.target.value.toLowerCase();
+        var listItems = document.getElementsByTagName('li');
+      
+        Array.from(listItems);
+        for(let i=0;i<listItems.length;i++){
+           var itemName = listItems[i].firstChild.textContent;
+           if(itemName.toLowerCase().indexOf(inputText) != -1){
+            listItems[i].style.display = 'block';
+           }else{
+            listItems[i].style.display ='none';
+           }
+        }
+
+
+     })
 
 
  
