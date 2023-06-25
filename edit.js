@@ -1,7 +1,7 @@
 var form = document.getElementById('addForm');
 var items = document.getElementById('items');
 
-document.addEventListener('submit' , addItem);
+form.addEventListener('submit' , addItem);
 
 function addItem(e){
     e.preventDefault();
@@ -32,7 +32,7 @@ function addItem(e){
 }
 
  
-  document.addEventListener('click', (e)=>{
+  items.addEventListener('click', (e)=>{
 
      e.preventDefault();
       if(e.target.classList.contains('delete')){
